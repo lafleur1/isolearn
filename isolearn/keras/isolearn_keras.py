@@ -15,7 +15,7 @@ from isolearn.generator import SequenceExtractor, CountExtractor, PositionShifte
 from isolearn.generator import DataGenerator as VanillaGenerator
 from isolearn.generator import MultiDataGenerator as MultiVanillaGenerator
 
-class DataGenerator(keras.utils.Sequence) :
+class DataGenerator(keras.utils.data_utils.Sequence) :
     
     def __init__(self, data_ids, sources, batch_size=32, inputs=None, outputs=None, randomizers=[], shuffle=True, densify_batch_matrices=False, move_outputs_to_inputs=False) :
         self.gen = VanillaGenerator(data_ids, sources, batch_size=batch_size, inputs=inputs, outputs=outputs, randomizers=randomizers, shuffle=shuffle, densify_batch_matrices=densify_batch_matrices, move_outputs_to_inputs=move_outputs_to_inputs)
@@ -42,7 +42,7 @@ class DataGenerator(keras.utils.Sequence) :
         self.gen.on_epoch_end()
 
 
-class MultiDataGenerator(keras.utils.Sequence) :
+class MultiDataGenerator(keras.utils.data_utils.Sequence) :
     
     def __init__(self, data_gens, sampling_factors, reshuffle_flags, epoch_loss_factors, dummy_outputs=True) :
         self.gen = MultiVanillaGenerator(data_gens, sampling_factors, reshuffle_flags, epoch_loss_factors, dummy_outputs=dummy_outputs)
