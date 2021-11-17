@@ -1,5 +1,7 @@
 # Isolearn
 
+AML: updating to use tf2 instead of tf1 
+
 A Python API for automated loading, processing and streaming of genomics data into deep learning models (Keras).
 Implements Keras data generators for loading and encoding Pandas dataframes and RNA-Seq count matrices into numerical tensors.
 
